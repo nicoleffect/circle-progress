@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="format-detection" content="telephone=no,email=no,address=no" />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <title>Simple Circle Progress</title>
+  <style>
+    html {
+      height: 100%;
+      width: 100%;
+    }
+
+    body {
+      margin: 0;
+      padding: 10px;
+      box-sizing: border-box;
+      overflow: hidden;
+      background: #e7eaed;
+      text-align: center
+    }
+
+
+    canvas {
+      width: 100px;
+      height: 100px;
+      box-sizing: border-box;
+      margin: 10px;
+      vertical-align: middle
+    }
+
+  </style>
+</head>
+
+<body>
+  <div>
+    <canvas id="canvas0"></canvas>
+    <div style="display:inline-block;text-align: left">
+      <p id="desc">&nbsp;</p>
+      <button onclick="circle0.anim()">click me or the circle</button>
+
+    </div>
+
+  </div>
+
+  <p>click the circles:</p>
+  <canvas id="canvas1"></canvas>
+  <canvas id="canvas2"></canvas>
+  <canvas id="canvas3"></canvas>
+  <canvas id="canvas4"></canvas>
+
+
+  <script src="../dist/circle-progress.iife.js"></script>
+  <script>
+    var circle0 = circleProgress({
+      canvas: document.getElementById('canvas0'),
+      rate: 80
+    });
+    var count = 0;
+    circle0.onComplete(() => {
+      count++;
+      document.getElementById('desc').innerHTML = 'count: ' + count;
+    });
+
+    circleProgress({
+      canvas: document.getElementById('canvas1'),
+      rate: 76,
+      orbitStyle: '#ffffff',
+      circleStyle: '#2879ff'
+    });
+
+    circleProgress({
+      canvas: document.getElementById('canvas2'),
+      rate: 88,
+      circleStyle: '#ffd50a',
+      dash: true,
+      orbitStyle: '#ffffff',
+      textBaseline: 'alphabetic'
+    });
+
+    circleProgress({
+      canvas: document.getElementById('canvas3'),
+      rate: 82,
+      circleStyle: '#84d276',
+      textStyle: '#E57373',
+      clockwise: true,
+      textBaseline: 'hanging'
+    })
+
+    circleProgress({
+      canvas: document.getElementById('canvas4'),
+      rate: 78,
+      circleStyle: '#E57373',
+      textStyle: '',
+      lineCap: 'round',
+      lineWidth: 18
+    });
+
+
+  </script>
+</body>
+
+</html>
