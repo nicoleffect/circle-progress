@@ -1,5 +1,5 @@
 {
-  "name": "circle-progress",
+  "name": "@nicoleffect/circle-progress",
   "version": "1.0.0",
   "description": "a simple circe progress",
   "scripts": {
